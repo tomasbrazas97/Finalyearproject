@@ -43,4 +43,51 @@ users.post('/register', (req, res) => {
     })
 })
 
+users.post('/login', (req,res) => {
+    User.findOne({
+        email: req.body.email
+    })
+    .then (user => {
+        if(user) {
+            if(bcrypt.compareSync(req.body.password, user.password)){
+                const payload = {
+                    _id: user._id,
+                    first_name: user.first_name,
+                    last_name: user.last_name,
+                    email: user.email
+                }
+                let token = jwt.sign(payload, process.env.SECRET_KEY, {
+                    expiresIn: 1440
+                })
+                res.json({token : token})
+            }else{
+                res.json({error: "User does not exist"})
+            }
+        }else{
+            res.json({error: "User does not exist"})
+        }
+    })
+    .catch(err => {
+        res.send('error: ' + err)
+    })
+})
+
+users.get('/profile', (req, res) => {
+    var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
+
+    User.findOne({
+        _id: decoded_id
+    })
+    .then(user => {
+        if(user){
+            res.json(user)
+        }else{
+            res.send("User does not exist")
+        }
+    })
+    .catch(err => {
+        res.send('error: ' + err)
+    })
+})
+
 module.exports = users

@@ -12,6 +12,18 @@ export class HomeComponent implements OnInit{
   zoom: number;
   address: string;
   private geoCoder;
+
+  public mapStyles = [
+    {
+    "featureType": "poi",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+      ]
+    }
+  ];
  
   @ViewChild('search')
   public searchElementRef: ElementRef;

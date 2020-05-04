@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core'
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router'
-import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule } from '@agm/core'
+import { GooglePlaceModule } from "ngx-google-places-autocomplete"
 
 import { AppComponent } from './app.component'
 import { ProfileComponent } from './profile/profile.component'
@@ -34,6 +35,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    GooglePlaceModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCQ9ahuGv8XqvSws7q6pQxMD7xnVhokzu8'
     }),

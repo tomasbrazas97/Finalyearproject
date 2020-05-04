@@ -1,3 +1,6 @@
+<head>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZmol45j-lzSvQU6fga3nLPZX_W5Sl86E&libraries=places&language=en"></script>
+</head>
 <div class="container">
     <div class="jumbotron mt-5">
       <div class="col-sm-8 mx-auto">
@@ -5,8 +8,12 @@
       </div>
     </div>
 
+    <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
+    <p>{{formattedAddress}}</p>
+
+
     <agm-map [latitude]="lat" [longitude]="lng">
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
     </agm-map>
-    
+
   </div>

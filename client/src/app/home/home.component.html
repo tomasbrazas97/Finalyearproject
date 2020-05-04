@@ -2,18 +2,23 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZmol45j-lzSvQU6fga3nLPZX_W5Sl86E&libraries=places&language=en"></script>
 </head>
 <div class="container">
-    <div class="jumbotron mt-5">
-      <div class="col-sm-8 mx-auto">
-        <h1 class="text-center">WELCOME</h1>
-      </div>
+  <div class="jumbotron mt-5">
+    <div class="col-sm-8 mx-auto">
+      <h1 class="text-center">WELCOME</h1>
     </div>
-
-    <input ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>
-    <p>{{formattedAddress}}</p>
-
-
-    <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</div>
+<div class="container">
+    <div class="form-group">
+      <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+    </div>
+   
+    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+      <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
+        (dragEnd)="markerDragEnd($event)"></agm-marker>
     </agm-map>
-
+   
+    <h5>Address: {{address}}</h5>
+    <div>Latitude: {{latitude}}</div>
+    <div>Longitude: {{longitude}}</div>
   </div>
+</div>

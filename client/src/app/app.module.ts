@@ -37,7 +37,8 @@ const routes: Routes = [
     BrowserModule,
     GooglePlaceModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCQ9ahuGv8XqvSws7q6pQxMD7xnVhokzu8'
+      apiKey: 'AIzaSyCQ9ahuGv8XqvSws7q6pQxMD7xnVhokzu8',
+      libraries: ['places']
     }),
     FormsModule,
     HttpClientModule,

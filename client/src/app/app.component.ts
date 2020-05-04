@@ -8,4 +8,7 @@ import {AuthenticationService} from './authentication.service'
 })
 export class AppComponent {
   constructor(public auth: AuthenticationService) {}
+
+  lat = 40.730610;
+  lng = -73.935242;
 }

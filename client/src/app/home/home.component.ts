@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit{
   zoom: number;
   address: string;
   private geoCoder;
+  an = 'BOUNCE';
 
   public mapStyles = [
     {
@@ -227,7 +228,7 @@ export class HomeComponent implements OnInit{
   @ViewChild('search')
   public searchElementRef: ElementRef;
  
- 
+
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone

@@ -13,11 +13,16 @@
     </div>
    
     <agm-map [streetViewControl]="false" [styles]="mapStyles" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-      <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="false"
-        (dragEnd)="markerDragEnd($event)">
-      </agm-marker>      
+      <agm-marker 
+      [animation]="an"
+      [latitude]="latitude" 
+      [longitude]="longitude" 
+      [markerDraggable]="false"
+      (dragEnd)="markerDragEnd($event)">
+      </agm-marker> 
+      
     </agm-map>
-   
+
     <!--<h5>Address: {{address}}</h5>
     <div>Latitude: {{latitude}}</div>
     <div>Longitude: {{longitude}}</div>-->

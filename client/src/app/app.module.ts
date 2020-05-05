@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router'
 import { AgmCoreModule } from '@agm/core'
 import { AgmOverlays } from 'agm-overlays';
 import { GooglePlaceModule } from "ngx-google-places-autocomplete"
+import { AgmDirectionModule } from 'agm-direction';
 
 import { AppComponent } from './app.component'
 import { ProfileComponent } from './profile/profile.component'
@@ -40,10 +41,11 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     GooglePlaceModule,
+    AgmDirectionModule,
     AgmOverlays,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCQ9ahuGv8XqvSws7q6pQxMD7xnVhokzu8',
-      libraries: ['places']
+      libraries: ['places', "geometry"]
     }),
     FormsModule,
     HttpClientModule,

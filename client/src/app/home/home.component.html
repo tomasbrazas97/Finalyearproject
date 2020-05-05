@@ -18,7 +18,12 @@
       [latitude]="latitude" 
       [longitude]="longitude" 
       [markerDraggable]="false"
+      [agmFitBounds]="true"
       (dragEnd)="markerDragEnd($event)">
+
+      <agm-info-window [disableAutoPan]="true">
+         You are <strong>here!</strong>
+        </agm-info-window>
       </agm-marker> 
       
     </agm-map>

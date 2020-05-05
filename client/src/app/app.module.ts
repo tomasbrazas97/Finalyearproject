@@ -17,10 +17,10 @@ import { AuthenticationService } from './authentication.service'
 import { AuthGuardService } from './auth-guard.service'
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'welcome', component: WelcomeComponent },
+  { path: '', component: WelcomeComponent },
   {
     path: 'profile',
     component: ProfileComponent,

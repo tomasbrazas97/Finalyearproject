@@ -6,7 +6,7 @@ import { MapsAPILoader, MouseEvent } from '@agm/core';
 })
 export class HomeComponent implements OnInit{
 
-  title: string = 'AGM project';
+  title: string = 'AGM';
   latitude: number;
   longitude: number;
   zoom: number;
@@ -15,14 +15,204 @@ export class HomeComponent implements OnInit{
 
   public mapStyles = [
     {
-    "featureType": "poi",
+    "featureType": "poi.medical",
     "elementType": "labels",
     "stylers": [
       {
         "visibility": "off"
       }
       ]
-    }
+    },
+    {
+      "featureType": "poi.government",
+      "elementType": "labels",
+      "stylers": [
+        {
+          "visibility": "off"
+        }
+        ]
+      },
+      {
+        "featureType": "poi.park",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+          ]
+      },
+      {
+        "featureType": "poi.school",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+          ]
+      },
+      {
+        "featureType": "poi.place_of_worship",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+          ]
+      },
+      {
+        "featureType": "poi.business",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "on"
+          }
+          ]
+      },
+      {
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "hue": "#ff4400"
+          },
+          {
+            "saturation": -100
+          },
+          {
+            "lightness": -4
+          },
+          {
+            "gamma": 0.72
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "labels.icon"
+      },
+      {
+        "featureType": "landscape.man_made",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "hue": "#0077ff"
+          },
+          {
+            "gamma": 3.1
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "stylers": [
+          {
+            "hue": "#000000"
+          },
+          {
+            "gamma": 0.44
+          },
+          {
+            "saturation": -33
+          }
+        ]
+      },
+      {
+        "featureType": "poi.park",
+        "stylers": [
+          {
+            "hue": "#44ff00"
+          },
+          {
+            "saturation": -23
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.text.fill",
+        "stylers": [
+          {
+            "hue": "#007fff"
+          },
+          {
+            "gamma": 0.77
+          },
+          {
+            "saturation": 65
+          },
+          {
+            "lightness": 99
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+          {
+            "gamma": 0.11
+          },
+          {
+            "weight": 5.6
+          },
+          {
+            "saturation": 99
+          },
+          {
+            "hue": "#0091ff"
+          },
+          {
+            "lightness": -86
+          }
+        ]
+      },
+      {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "lightness": -48
+          },
+          {
+            "hue": "#ff5e00"
+          },
+          {
+            "gamma": 1.2
+          },
+          {
+            "saturation": -23
+          }
+        ]
+      },
+      {
+        "featureType": "transit",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+          {
+            "saturation": -64
+          },
+          {
+            "hue": "#ff9100"
+          },
+          {
+            "lightness": 16
+          },
+          {
+            "gamma": 0.47
+          },
+          {
+            "weight": 2.7
+          }
+        ]
+      },
+      {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+          {
+            "color": "#000080"
+          }
+        ]
+      },
   ];
  
   @ViewChild('search')
@@ -81,7 +271,7 @@ export class HomeComponent implements OnInit{
           //set latitude, longitude and zoom
           this.latitude = place.geometry.location.lat();
           this.longitude = place.geometry.location.lng();
-          this.zoom = 12;
+          this.zoom = 16;
         });
       });
     });
@@ -93,7 +283,7 @@ export class HomeComponent implements OnInit{
       navigator.geolocation.getCurrentPosition((position) => {
         this.latitude = position.coords.latitude;
         this.longitude = position.coords.longitude;
-        this.zoom = 8;
+        this.zoom = 16;
         this.getAddress(this.latitude, this.longitude);
       });
     }
@@ -113,7 +303,7 @@ export class HomeComponent implements OnInit{
       console.log(status);
       if (status === 'OK') {
         if (results[0]) {
-          this.zoom = 12;
+          this.zoom = 16;
           this.address = results[0].formatted_address;
         } else {
           window.alert('No results found');

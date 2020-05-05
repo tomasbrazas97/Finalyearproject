@@ -1,3 +1,11 @@
 agm-map {
     height: 300px;
   }
+
+/* Remove clutter tos*/
+.gmnoprint a, .gmnoprint span {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}

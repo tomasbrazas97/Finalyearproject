@@ -209,11 +209,20 @@ export class HomeComponent implements OnInit{
         "elementType": "geometry",
         "stylers": [
           {
-            "color": "#000080"
+            "color": "#17263c"
           }
         ]
       },
   ];
+
+  labelOptions = {
+    color: 'black',
+    fontFamily: '',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    text: "X"
+}
+
  
   @ViewChild('search')
   public searchElementRef: ElementRef;

@@ -12,11 +12,15 @@ export class HomeComponent implements OnInit{
   zoom: number;
   address: string;
   private geoCoder;
-  an = 'BOUNCE';
+  //an = 'BOUNCE';
   origin: any;
   destination: any;
   dir = undefined;
   
+  public renderOptions = {
+    suppressMarkers: true,
+  }
+
   public mapStyles = [
     {
     "featureType": "poi.medical",
@@ -294,7 +298,7 @@ export class HomeComponent implements OnInit{
       lng: -7.6921 
      };
   }
-  
+
   // Get Current Location Coordinates
   private setCurrentLocation() {
     if ('geolocation' in navigator) {

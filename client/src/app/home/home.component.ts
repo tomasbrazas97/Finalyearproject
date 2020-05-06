@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
+declare var $: any;
 
 @Component({
   templateUrl: './home.component.html'
@@ -12,14 +13,20 @@ export class HomeComponent implements OnInit{
   zoom: number;
   address: string;
   private geoCoder;
-  //an = 'BOUNCE';
+  an = 'BOUNCE';
   origin: any;
   destination: any;
   dir = undefined;
+
+  markerClick() {
+    $("#myModal").modal('show');
+  }
+  
   
   public renderOptions = {
     suppressMarkers: true,
   }
+  
 
   public mapStyles = [
     {
@@ -231,7 +238,6 @@ export class HomeComponent implements OnInit{
     text: "X"
 }
 
- 
   @ViewChild('search')
   public searchElementRef: ElementRef;
  

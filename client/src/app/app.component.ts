@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthenticationService} from './authentication.service'
+declare var $: any;
 
 @Component({
   selector: 'app-root',

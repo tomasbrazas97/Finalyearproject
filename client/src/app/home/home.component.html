@@ -14,12 +14,17 @@
    
     <agm-map [streetViewControl]="false" [styles]="mapStyles" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
       <agm-marker 
-      [animation]="an"
+     
       [latitude]="latitude" 
       [longitude]="longitude" 
-      [markerDraggable]="false"
+      [markerDraggable]="true"
       [agmFitBounds]="true"
       (dragEnd)="markerDragEnd($event)">
+
+      <agm-direction 
+      *ngIf="dir" [origin]="dir.origin"
+        [destination]="destination"
+    ></agm-direction>
 
       <agm-info-window [disableAutoPan]="true">
          You are <strong>here!</strong>
@@ -28,8 +33,12 @@
       
     </agm-map>
 
-    <!--<h5>Address: {{address}}</h5>
+    <h5>Address: {{address}}</h5>
     <div>Latitude: {{latitude}}</div>
-    <div>Longitude: {{longitude}}</div>-->
+    <div>Longitude: {{longitude}}</div>
   </div>
 </div>
+
+
+ <!-- TO ADD ANIMATION INTO AGM-MARKER
+   [animation]="an" -->

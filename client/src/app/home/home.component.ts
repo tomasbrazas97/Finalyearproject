@@ -13,7 +13,10 @@ export class HomeComponent implements OnInit{
   address: string;
   private geoCoder;
   an = 'BOUNCE';
-
+  origin: any;
+  destination: any;
+  dir = undefined;
+  
   public mapStyles = [
     {
     "featureType": "poi.medical",
@@ -285,8 +288,13 @@ export class HomeComponent implements OnInit{
         });
       });
     });
+
+    this.destination = { 
+      lat: 53.1424, 
+      lng: -7.6921 
+     };
   }
- 
+  
   // Get Current Location Coordinates
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
@@ -315,6 +323,10 @@ export class HomeComponent implements OnInit{
         if (results[0]) {
           this.zoom = 16;
           this.address = results[0].formatted_address;
+
+          this.dir = {
+            origin: { lat: latitude, lng: longitude}
+          }
         } else {
           window.alert('No results found');
         }

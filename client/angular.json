@@ -25,7 +25,8 @@
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/app/home/home.component.css"
+              "src/app/home/home.component.css",
+              "src/app/home/login.component.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

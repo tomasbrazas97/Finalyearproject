@@ -1,2 +1,7 @@
-.header{
+body{
+    background-image: url(yellowBG.png);
+    background-size: cover;
+    height:100vh;
+    box-sizing:border-box;
+    overflow-y:hidden;
 }

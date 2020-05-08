@@ -11,8 +11,16 @@ body {
     font-size: 1.4rem;
 }
 
-h2{
+h1{
     font-size: 2.4rem;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    border: 0;
+    display: block;
+    margin: 10% auto;
+    letter-spacing: 1rem;
+    opacity: .5;
 }
 
 .container_item{
@@ -142,8 +150,7 @@ h2{
     position: relative;
     border: 0;
     display: block;
-    margin: 10% auto;
-    text-align: center;
+    margin: 5% auto;
     border: 2px solid #5D737E;
     padding: 14px 40px;
     outline: none;

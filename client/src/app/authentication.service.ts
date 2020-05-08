@@ -98,10 +98,16 @@ export class AuthenticationService{
           headers: { Authorization: ` ${this.getToken()}` }
         })
       }
+
+    public home(): Observable<any> {
+    return this.http.get(`/users/profile`, {
+        headers: { Authorization: ` ${this.getToken()}` }
+    })
+    }
     
-      public logout(): void {
-        this.token = ''
-        window.localStorage.removeItem('usertoken')
-        this.router.navigateByUrl('/')
-      }
+    public logout(): void {
+    this.token = ''
+    window.localStorage.removeItem('usertoken')
+    this.router.navigateByUrl('/')
+    }
 }

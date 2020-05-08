@@ -9,7 +9,7 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/">Welcome</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="auth.isLoggedIn()">
         <a class="nav-link" routerLink="/home">Home</a>
       </li>
       <li *ngIf="!auth.isLoggedIn()" class="nav-item">

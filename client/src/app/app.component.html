@@ -21,6 +21,9 @@
       <li *ngIf="auth.isLoggedIn()" class="nav-item">
         <a class="nav-link" routerLink="/profile">{{ auth.getUserDetails()?.first_name }}</a>
       </li>
+      <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contact</a>
+        </li>
       <li *ngIf="auth.isLoggedIn()" class="nav-item">
         <a class="nav-link" routerLink="" (click)="auth.logout()">Logout</a>
       </li>
@@ -29,3 +32,7 @@
 </nav>
 
 <router-outlet></router-outlet>
+
+<head>
+
+</head>

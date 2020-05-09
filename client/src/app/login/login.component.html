@@ -1,10 +1,16 @@
 <body class="body">
     <div>
-        <form class="box" (submit)="login()">
+            <img src="../assets/logoBlack.png" width="250px"/>
+            <form class="box" (submit)="login()">     
             <h1>Login</h1>
             <input type="email" class="form-control" name="email" placeholder="Enter Email" [(ngModel)]="credentials.email">
-            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password">
+            <input type="password" class="form-control" name="password" placeholder="Enter Password" [(ngModel)]="credentials.password">
             <button type="submit" value="Login">Login</button>
+
+            <h5>Not signed up?</h5> 
+            <p><a routerLink="/register">Register</a></p>
         </form>
+
+        
     </div>
 </body>

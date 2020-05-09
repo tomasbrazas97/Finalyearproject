@@ -1,38 +1,36 @@
-<nav class="header" class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" *ngIf="!auth.isLoggedIn()"  routerLink="/">Welcome</a>
+<nav class="header">
+  <div>
+      <img src="./assets/navLogo.png" style="width:300px;height:90px;">
+  </div>
+    <ul class="nav-links">
+      <li>
+        <a *ngIf="!auth.isLoggedIn()"  routerLink="/">Welcome</a>
       </li>
-      <li class="nav-item" *ngIf="auth.isLoggedIn()">
-        <a class="nav-link" routerLink="/home">Home</a>
+      <li *ngIf="auth.isLoggedIn()">
+        <a  routerLink="/home">Home</a>
       </li>
-      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLink="/login">Login</a>
+      <li *ngIf="!auth.isLoggedIn()" >
+        <a  routerLink="/login">Login</a>
       </li>
-      <li *ngIf="!auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLink="/register">Register</a>
+      <li *ngIf="!auth.isLoggedIn()" >
+        <a  routerLink="/register">Register</a>
       </li>
-      <li *ngIf="auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLink="/profile">{{ auth.getUserDetails()?.first_name }}</a>
+      <li *ngIf="auth.isLoggedIn()" >
+        <a  routerLink="/profile">{{ auth.getUserDetails()?.first_name }}</a>
       </li>
-      <li class="nav-item">
-          <a class="nav-link" routerLink="/contact">Contact</a>
-        </li>
-      <li *ngIf="auth.isLoggedIn()" class="nav-item">
-        <a class="nav-link" routerLink="" (click)="auth.logout()">Logout</a>
+      <li *ngIf="auth.isLoggedIn()" >
+        <a  routerLink="" (click)="auth.logout()">Logout</a>
       </li>
     </ul>
-  </div>
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+      <div class="line4"></div>
+      <div class="line5"></div>
+    </div>
 </nav>
 
+<script src="app.js"></script>
+
 <router-outlet></router-outlet>
-
-<head>
-
-</head>

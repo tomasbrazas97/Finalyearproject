@@ -1,38 +1,34 @@
 <head>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZmol45j-lzSvQU6fga3nLPZX_W5Sl86E&libraries=places&language=en"></script>
 </head>
-<div class="container">
-  <div class="jumbotron mt-5">
-    <div class="col-sm-8 mx-auto">
-      <h1 class="text-center">WELCOME</h1>
-    </div>
+<div class="heading">
+  <div >
+      <h1 class="text-center">HOME PAGE</h1>
 </div>
 <div class="container">
-    <div class="input" class="form-group">
-      <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
-    </div>
-   
-    <agm-map [streetViewControl]="false" [styles]="mapStyles" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-      <agm-marker 
-      [animation]="an"
-      [latitude]="latitude" 
-      [longitude]="longitude" 
-      [markerDraggable]="true"
-      [agmFitBounds]="true"
-      (dragEnd)="markerDragEnd($event)">
+    <div>
+      <input type="text" class="input"  (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+  
+      <agm-map [streetViewControl]="false" [styles]="mapStyles" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+        <agm-marker 
+        [animation]="an"
+        [latitude]="latitude" 
+        [longitude]="longitude" 
+        [markerDraggable]="true"
+        [agmFitBounds]="true"
+        (dragEnd)="markerDragEnd($event)">
 
-      <agm-direction 
-      *ngIf="dir" [origin]="dir.origin"
-        [destination]="destination"
-        [renderOptions]="renderOptions" 
+        <agm-direction 
+        *ngIf="dir" [origin]="dir.origin"
+          [destination]="destination"
+          [renderOptions]="renderOptions" 
+          ></agm-direction>
+        </agm-marker> 
+        <agm-marker (markerClick)="markerClick()" [latitude]="lat1" [longitude]="lng1"></agm-marker>
+        <agm-marker (markerClick)="markerClick1()" [latitude]="lat2" [longitude]="lng2"></agm-marker>
         
-    ></agm-direction>
-      </agm-marker> 
-      <agm-marker (markerClick)="markerClick()" [latitude]="lat1" [longitude]="lng1"></agm-marker>
-      <agm-marker (markerClick)="markerClick1()"[latitude]="lat2" [longitude]="lng2"></agm-marker>
-      
-    </agm-map>
-
+      </agm-map>
+    </div>
     <!-- The Modal -->
   <div class="modal" id="myModal">
     <div class="modal-dialog">
@@ -46,7 +42,7 @@
          test <br>
         </div>
         <div class="modal-footer">
-          <button type="button">Get Directions</button>
+          <button (click)="getDirectionsModal1();" type="button">Get Directions</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -66,7 +62,7 @@
            test <br>
           </div>
           <div class="modal-footer">
-            <button type="button">Get Directions</button>
+            <button (click)="getDirectionsModal2();" type="button">Get Directions</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>

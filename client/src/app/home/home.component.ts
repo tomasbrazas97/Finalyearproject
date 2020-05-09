@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit{
   
   public mapStyles = [
     {
-    "featureType": "poi.medical",
+    "featureType": "poi",
     "elementType": "labels",
     "stylers": [
       {
@@ -44,51 +44,6 @@ export class HomeComponent implements OnInit{
       }
       ]
     },
-    {
-      "featureType": "poi.government",
-      "elementType": "labels",
-      "stylers": [
-        {
-          "visibility": "off"
-        }
-        ]
-      },
-      {
-        "featureType": "poi.park",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-          ]
-      },
-      {
-        "featureType": "poi.school",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-          ]
-      },
-      {
-        "featureType": "poi.place_of_worship",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-          ]
-      },
-      {
-        "featureType": "poi.business",
-        "elementType": "labels",
-        "stylers": [
-          {
-            "visibility": "on"
-          }
-          ]
-      },
       {
         "elementType": "geometry",
         "stylers": [
@@ -278,10 +233,22 @@ export class HomeComponent implements OnInit{
       });
     });
 
+  }
+
+  getDirectionsModal1(){
     this.destination = { 
       lat: 53.51413, 
       lng: -8.8550
      };
+     $('#myModal').modal('toggle');
+  }
+
+  getDirectionsModal2(){
+    this.destination = { 
+      lat: 53.5148, 
+      lng: -8.8519
+     };
+     $('#myModal1').modal('toggle');
   }
 
   // Get Current Location Coordinates

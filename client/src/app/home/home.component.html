@@ -8,13 +8,12 @@
     </div>
 </div>
 <div class="container">
-    <div class="form-group">
+    <div class="input" class="form-group">
       <input type="text" class="form-control" (keydown.enter)="$event.preventDefault()" placeholder="Search Nearest Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
     </div>
    
     <agm-map [streetViewControl]="false" [styles]="mapStyles" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
       <agm-marker 
-      
       (markerClick)="markerClick()"
       [animation]="an"
       [latitude]="latitude" 
@@ -30,6 +29,8 @@
         
     ></agm-direction>
       </agm-marker> 
+      <agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>
+      <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
       
     </agm-map>
 

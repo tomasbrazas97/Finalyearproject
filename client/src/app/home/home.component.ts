@@ -17,17 +17,19 @@ export class HomeComponent implements OnInit{
   origin: any;
   destination: any;
   dir = undefined;
+  lat1: number = 53.51413;
+  lng1: number = -8.8550;
+  lat2: number = 53.5148;
+  lng2: number = -8.8519;
 
   markerClick() {
     $("#myModal").modal('show');
   }
   
-  
   public renderOptions = {
     suppressMarkers: true,
   }
   
-
   public mapStyles = [
     {
     "featureType": "poi.medical",
@@ -246,33 +248,6 @@ export class HomeComponent implements OnInit{
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone
   ) { }
-  /*lat = 40.730610;
-  lng = -73.935242;
-  formattedAddress = '';
-
-  title: string = 'AGM project';
-  latitude: number;
-  longitude: number;
-  zoom:number;
-
-  options ={
-    ComponentRestrictions : {
-      country: ['IE']
-    }
-  }
-
-  ngOnInit() {
-    this.setCurrentLocation();
-  }
-
-
-  public handleAddressChange(address: any) {
-    this.formattedAddress = address.formatted_address;
-
-    console.log(address.geometry.location.lng());
-    console.log(address.geometry.location.lat());
-    console.log(address.geometry.location.toJSON());
-  }*/
 
   ngOnInit() {
     //load Places Autocomplete
@@ -300,8 +275,8 @@ export class HomeComponent implements OnInit{
     });
 
     this.destination = { 
-      lat: 53.1424, 
-      lng: -7.6921 
+      lat: 53.51413, 
+      lng: -8.8550
      };
   }
 
@@ -313,6 +288,9 @@ export class HomeComponent implements OnInit{
         this.longitude = position.coords.longitude;
         this.zoom = 16;
         this.getAddress(this.latitude, this.longitude);
+        this.dir = {
+          origin: { lat: this.latitude, lng: this.longitude}
+        }
       });
     }
   }

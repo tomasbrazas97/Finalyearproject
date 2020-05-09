@@ -1,5 +1,5 @@
 agm-map {
-    height: 300px;
+    height: 50vh;
     width: 100%;
   }
 
@@ -9,4 +9,27 @@ agm-map {
 }
 .gmnoprint div {
     background:none !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.input {
+    position: absolute;
+        top: 30px;
+        left: 30px;
+
+    border: 1px solid silver;
+        border-radius: 15px;
+
+    font-family: Roboto;
+        font-size: 15px;
+        font-weight: lighter;
+        text-align: center;
+
+    padding: 10px;
+    z-index: 100;
+    width: 250px;
 }

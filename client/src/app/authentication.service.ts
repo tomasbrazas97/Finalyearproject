@@ -33,13 +33,13 @@ export class AuthenticationService{
     constructor(private http: HttpClient, private router: Router) {}
 
     private saveToken(token: string): void {
-        localStorage.setItem('usertoken', token)
+        sessionStorage.setItem('usertoken', token)
         this.token = token
     }
 
     private getToken(): string{
         if(!this.token){
-            this.token = localStorage.getItem('usertoken')
+            this.token = sessionStorage.getItem('usertoken')
         }
         return this.token
     }
@@ -107,7 +107,7 @@ export class AuthenticationService{
     
     public logout(): void {
     this.token = ''
-    window.localStorage.removeItem('usertoken')
+    window.sessionStorage.removeItem('usertoken')
     this.router.navigateByUrl('/')
     }
 }

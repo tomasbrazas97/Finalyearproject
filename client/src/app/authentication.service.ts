@@ -67,11 +67,11 @@ export class AuthenticationService{
 
     public register(user: TokenPayload): Observable<any> {
         const base = this.http.post('/users/register', user)
-
         const request = base.pipe(
             map((data: TokenResponse) => {
                 if(data.token){
                     this.saveToken(data.token)
+                    alert("You have successfully registed on Discoverus.");
                 }
                 return data
             })
@@ -81,6 +81,7 @@ export class AuthenticationService{
 
     public login(user: TokenPayload): Observable<any> {
         const base = this.http.post('/users/login', user)
+        alert("You have successfully logged in.");
 
         const request = base.pipe(
             map((data: TokenResponse) => {
@@ -108,6 +109,7 @@ export class AuthenticationService{
     public logout(): void {
     this.token = ''
     window.sessionStorage.removeItem('usertoken')
+    alert("You have successfully logged out.");
     this.router.navigateByUrl('/')
     }
 }

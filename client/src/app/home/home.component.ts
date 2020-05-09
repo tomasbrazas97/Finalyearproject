@@ -26,6 +26,10 @@ export class HomeComponent implements OnInit{
     $("#myModal").modal('show');
   }
   
+  markerClick1() {
+    $("#myModal1").modal('show');
+  }
+
   public renderOptions = {
     suppressMarkers: true,
   }

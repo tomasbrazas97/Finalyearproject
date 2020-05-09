@@ -14,7 +14,6 @@
    
     <agm-map [streetViewControl]="false" [styles]="mapStyles" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
       <agm-marker 
-      (markerClick)="markerClick()"
       [animation]="an"
       [latitude]="latitude" 
       [longitude]="longitude" 
@@ -29,8 +28,8 @@
         
     ></agm-direction>
       </agm-marker> 
-      <agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>
-      <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
+      <agm-marker (markerClick)="markerClick()" [latitude]="lat1" [longitude]="lng1"></agm-marker>
+      <agm-marker (markerClick)="markerClick1()"[latitude]="lat2" [longitude]="lng2"></agm-marker>
       
     </agm-map>
 
@@ -38,23 +37,41 @@
   <div class="modal" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
-        <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Angular Google Maps Marker Click</h4>
+          <h4 class="modal-title">Gather</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <!-- Modal body -->
         <div class="modal-body">
-         Angular Google Maps
-         test <button>test</button>
+         Gather Restaurant
+         test <br>
         </div>
-        <!-- Modal footer -->
         <div class="modal-footer">
+          <button type="button">Get Directions</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
    </div>
+
+   <!-- The Modal -->
+  <div class="modal" id="myModal1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Gather1</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+           Gather Restaurant1
+           test <br>
+          </div>
+          <div class="modal-footer">
+            <button type="button">Get Directions</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+     </div>
 
     <h5>Address: {{address}}</h5>
     <div>Latitude: {{latitude}}</div>

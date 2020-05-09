@@ -4,10 +4,13 @@ var bodyParser = require('body-parser')
 var app = express()
 var mongoose = require('mongoose')
 var port = process.env.PORT || 3000
+const nodemailer = require('nodemailer')
 
 app.use(bodyParser.json())
 app.use(cors())
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: true})) // change to false if app breaks
+app.use(express.static('./public'))
+app.use(bodyParser.json())
 
 const mongoURI = 'mongodb://localhost:27017/meanloginreg'
 

@@ -22,18 +22,10 @@ export class HomeComponent implements OnInit{
   lat2: number = 53.5148;
   lng2: number = -8.8519;
 
-  markerClick() {
-    $("#myModal").modal('show');
-  }
-  
-  markerClick1() {
-    $("#myModal1").modal('show');
-  }
-
   public renderOptions = {
     suppressMarkers: true,
   }
-  
+
   public mapStyles = [
     {
     "featureType": "poi",
@@ -191,14 +183,6 @@ export class HomeComponent implements OnInit{
       },
   ];
 
-  labelOptions = {
-    color: 'black',
-    fontFamily: '',
-    fontSize: '14px',
-    fontWeight: 'bold',
-    text: "X"
-}
-
   @ViewChild('search')
   public searchElementRef: ElementRef;
  
@@ -233,6 +217,14 @@ export class HomeComponent implements OnInit{
       });
     });
 
+  }
+
+  markerClick() {
+    $("#myModal").modal('show');
+  }
+  
+  markerClick1() {
+    $("#myModal1").modal('show');
   }
 
   getDirectionsModal1(){

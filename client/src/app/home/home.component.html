@@ -29,45 +29,46 @@
         
       </agm-map>
     </div>
-    <!-- The Modal -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Gather</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-         Gather Restaurant
-         test <br>
-        </div>
-        <div class="modal-footer">
-          <button (click)="getDirectionsModal1();" type="button">Get Directions</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-   </div>
 
-   <!-- The Modal -->
-  <div class="modal" id="myModal1">
+    <!-- Modal for Gather -->
+    <div class="modal" id="myModal">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Gather1</h4>
+            <h4 class="modal-title">Gather</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
-           Gather Restaurant1
-           test <br>
+          Gather Restaurant
+          test <br>
           </div>
           <div class="modal-footer">
-            <button (click)="getDirectionsModal2();" type="button">Get Directions</button>
+            <button (click)="getDirectionsModal1();" type="button">Get Directions</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
-     </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Gather1</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+            Gather Restaurant1
+            test <br>
+            </div>
+            <div class="modal-footer">
+              <button (click)="getDirectionsModal2();" type="button">Get Directions</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <h5>Address: {{address}}</h5>
     <div>Latitude: {{latitude}}</div>

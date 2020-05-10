@@ -14,7 +14,6 @@ import { LoginComponent } from './login/login.component'
 import { RegisterComponent } from './register/register.component'
 import { WelcomeComponent } from './welcome/welcome.component'
 import { HomeComponent } from './home/home.component'
-import { ContactComponent } from './contact/contact.component'
 import { AuthenticationService } from './authentication.service'
 import { AuthGuardService } from './auth-guard.service'
 
@@ -22,7 +21,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'contact', component: ContactComponent },
   { path: '', component: WelcomeComponent },
   {
     path: 'profile',
@@ -38,8 +36,7 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     WelcomeComponent,
-    HomeComponent,
-    ContactComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,

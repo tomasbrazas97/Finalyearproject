@@ -266,7 +266,6 @@ export class HomeComponent implements OnInit{
     }
   }
  
- 
   markerDragEnd($event: MouseEvent) {
     console.log($event);
     this.latitude = $event.coords.lat;

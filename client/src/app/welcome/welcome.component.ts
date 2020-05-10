@@ -11,7 +11,7 @@ export class WelcomeComponent{
     constructor(private router: Router) { }
 
     toRegister() {
-        this.router.navigateByUrl('/register');
+        this.router.navigateByUrl('/login');
     }
 
 }

@@ -13,6 +13,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@angular/cli": "~9.1.4",
+    "@angular/compiler-cli": "~9.1.4",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",

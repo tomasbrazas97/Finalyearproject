@@ -2,7 +2,6 @@
   "name": "client",
   "version": "0.0.0",
   "scripts": {
-    "heroku-postbuild": "ng build --prod",
     "ng": "ng",
     "start": "ng serve --proxy-config proxy-config.json",
     "build": "ng build",
@@ -16,8 +15,6 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/cli": "~9.1.4",
-    "@angular/compiler-cli": "~9.1.4",
     "@agm/core": "^1.1.0",
     "@angular-material-extensions/google-maps-autocomplete": "^3.2.1",
     "@angular/animations": "^9.1.4",
@@ -40,8 +37,7 @@
     "nodemailer": "^6.4.6",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "typescript": "~3.8.3"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.4",

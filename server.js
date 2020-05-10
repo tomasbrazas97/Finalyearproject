@@ -4,18 +4,11 @@ var bodyParser = require('body-parser')
 var app = express()
 var mongoose = require('mongoose')
 var port = process.env.PORT || 3000
-const path = require('path');
 
 app.use(bodyParser.json())
 app.use(cors())
 app.use(bodyParser.urlencoded({extended: false})) 
 app.use(express.json())
-
-app.use(express.static(__dirname + '/dist/finalyearproject'));
-app.get('/*', function(req,res) {
-    res.sendFile(path.join(__dirname+ 
-        '/dist/finalyearproject/client/src.index.html'));
-});
 
 const mongoURI = 'mongodb://localhost:27017/meanloginreg'
 

@@ -1,29 +1,24 @@
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mt-5 mx-auto">
-            <form class="box" (submit)="register()">
-                <h1>Register</h1>
-                <div class="form-group">
-                    <label for="name">First name</label>
-                    <input type="text" class="form-control" name="first_name" placeholder="Enter your first name" [(ngModel)]="credentials.first_name">
-                </div>
-                <div class="form-group">
-                    <label for="name">Last name</label>
-                    <input type="text" class="form-control" name="last_name" placeholder="Enter your last name" [(ngModel)]="credentials.last_name">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password"> 
-                </div>
-
-                <button type="submit">Register</button>
-            </form>
-            </div>
+<body class="body">
+    <form class="box" (submit)="register()">
+        <img src="../assets/logoBlack.png" width="250px"/>
+        <h1>Register</h1>
+        <div class="form-group">
+            <label for="name">First name</label>
+            <input type="text" class="form-control" name="first_name" placeholder="Enter your first name" [(ngModel)]="credentials.first_name">
         </div>
-    </div>
+        <div class="form-group">
+            <label for="name">Last name</label>
+            <input type="text" class="form-control" name="last_name" placeholder="Enter your last name" [(ngModel)]="credentials.last_name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter email" [(ngModel)]="credentials.email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="credentials.password"> 
+        </div>
+
+        <button type="submit">Register</button>
+    </form>
 </body>

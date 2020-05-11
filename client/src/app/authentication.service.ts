@@ -81,12 +81,12 @@ export class AuthenticationService{
 
     public login(user: TokenPayload): Observable<any> {
         const base = this.http.post('/users/login', user)
-        alert("You have successfully logged in.");
-
+       
         const request = base.pipe(
             map((data: TokenResponse) => {
                 if(data.token){
                     this.saveToken(data.token)
+                    alert("You have successfully logged in.");
                 }
                 return data
             })

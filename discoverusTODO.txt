@@ -8,4 +8,7 @@ DISCOVERUS
 - Let user upload own images
 - Let user add friends (friend request system) Hangout together?
 - Discover page, most favourited
+- chat between users
+- optimize for mobile 
+- take pictures? use camera?
 - Redo/Update doc

@@ -6,11 +6,16 @@
     background: none;
 }
 
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+
 img{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 2rem;
+    padding: 3rem;
 }
 
 .box h5{
@@ -46,14 +51,14 @@ img{
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 14px 10px;
     width: 40vw;
     outline: none;
     color: white;
     border-radius: 24px;
     transition: 0.25s;
-    background-color: #09383E;
+    background-color: #9D5C63;
 }
 
 .box input[type = "email"]:focus,.box input[type = "password"]:focus{
@@ -66,7 +71,7 @@ img{
     display: block;
     margin: 20px auto;
     text-align: center;
-    border: 2px solid black;
+    border: 2px solid white;
     padding: 14px 40px;
     outline: none;
     color: black;
@@ -76,7 +81,7 @@ img{
 }
 
 .box button[type = "submit"]:hover{
-    background: #09383E;
+    background: #9D5C63;
     color: white;
 
 }

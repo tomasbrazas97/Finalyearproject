@@ -10,7 +10,7 @@ app.use(cors())
 app.use(bodyParser.urlencoded({extended: false})) 
 app.use(express.json())
 
-const mongoURI = 'mongodb://localhost:27017/meanloginreg'
+const mongoURI = 'mongodb+srv://tom123:tom123@disco.v4x55.mongodb.net/Users?retryWrites=true&w=majority'
 
 mongoose
  .connect(mongoURI, {useNewUrlParser: true})

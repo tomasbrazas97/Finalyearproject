@@ -1,7 +1,5 @@
 DISCOVERUS
 
-- Make more appealing
-- Move db to cloud
 - DB for markers 
 - Let user add his own markers (button with curr location)
 - Add to favourites/ view favourites on profile page

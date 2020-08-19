@@ -1,5 +1,5 @@
 body{
-    background-image: url(yellowBG.png);
+    background-image: url(/assets/bg1.png);
     background-size: cover;
     height:100vh;
     box-sizing:border-box;
@@ -17,7 +17,7 @@ body{
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
-    background-color:  #09383E;
+    background-color:  black;
 }
 
 .nav-links{

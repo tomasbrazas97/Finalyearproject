@@ -1,14 +1,27 @@
 .box{
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: none;
 }
 
+body {
+    overflow: scroll;
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     opacity: 1; /* Firefox */
+}
+
+.box h1{
+    color: black;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 1rem;
+    padding-top: 0;
 }
 
 img{
@@ -36,20 +49,12 @@ img{
     color: white;
 }
 
-.box h1{
-    color: black;
-    text-transform: uppercase;
-    font-weight: 500;
-    text-align: center;
-    letter-spacing: 1rem;
-    padding-top: 0;
-}
 
 .box input[type = "email"],.box input[type = "password"],.box input[type = "text"]{
     border: 0;
     background: none;
     display: block;
-    margin: 20px auto;
+    margin: 2px auto;
     text-align: center;
     border: 2px solid white;
     padding: 14px 10px;

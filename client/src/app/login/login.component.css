@@ -85,15 +85,3 @@ img{
     color: white;
 
 }
-
-@media (max-width: 900px) {
-    .body{
-        display:flex;
-        flex-wrap: wrap;
-    }
-    img, .box{
-        width: 50%;
-        margin-left: auto;
-    }
-
-}

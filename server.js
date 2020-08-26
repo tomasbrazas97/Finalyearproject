@@ -18,6 +18,7 @@ mongoose
  .catch(err => console.log(err))
 
  var Users = require('./routes/Users')
+ var Markers = require('./routes/Markers')
 
  app.use('/users', Users)
 

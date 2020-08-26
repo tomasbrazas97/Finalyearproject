@@ -21,6 +21,7 @@ mongoose
  var Markers = require('./routes/Markers')
 
  app.use('/users', Users)
+ app.use('/markers', Markers)
 
  app.listen(port, function () {
      console.log("Server is running on port: " + port)

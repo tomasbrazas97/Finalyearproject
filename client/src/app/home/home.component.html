@@ -9,7 +9,8 @@
     <div>
       <input type="text" class="input"  (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
   
-      <agm-map [streetViewControl]="false" [styles]="mapStyles" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+      <agm-map [streetViewControl]="false" [styles]="mapStyles" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapDblClick)="mapDoubleClick($event)"
+      [disableDoubleClickZoom]="true">
         <agm-marker 
         [animation]="an"
         [latitude]="latitude" 
@@ -24,7 +25,10 @@
           [renderOptions]="renderOptions" 
           ></agm-direction>
         </agm-marker> 
+
         <agm-marker *ngFor="let location of locations" [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+       <!-- <agm-marker (markerClick)="markerClick()" [latitude]="lat1" [longitude]="lng1"></agm-marker>
+        <agm-marker (markerClick)="markerClick1()" [latitude]="lat2" [longitude]="lng2"></agm-marker> -->
         
       </agm-map>
     </div>

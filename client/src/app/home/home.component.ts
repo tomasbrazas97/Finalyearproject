@@ -27,6 +27,16 @@ export class HomeComponent implements OnInit{
     { lat: 53.51413, lng: -8.8550},
     { lat: 53.5148, lng: -8.8519}
   ]
+
+  mapDoubleClick(event) {
+    console.log(event);
+    const obj = {
+      lat: event.coords.lat,
+      lng: event.coords.lng,
+
+    };
+    this.locations.push(obj);
+  }
   
   public renderOptions = {
     suppressMarkers: true,

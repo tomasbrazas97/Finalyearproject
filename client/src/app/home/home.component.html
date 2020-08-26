@@ -24,8 +24,7 @@
           [renderOptions]="renderOptions" 
           ></agm-direction>
         </agm-marker> 
-        <agm-marker (markerClick)="markerClick()" [latitude]="lat1" [longitude]="lng1"></agm-marker>
-        <agm-marker (markerClick)="markerClick1()" [latitude]="lat2" [longitude]="lng2"></agm-marker>
+        <agm-marker *ngFor="let location of locations" [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
         
       </agm-map>
     </div>

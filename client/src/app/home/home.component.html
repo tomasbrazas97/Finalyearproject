@@ -1,6 +1,7 @@
 <head>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZmol45j-lzSvQU6fga3nLPZX_W5Sl86E&libraries=places&language=en"></script>
 </head>
+<body>
 <div class="heading">
   <div >
       <h1 class="text-center">HOME PAGE</h1>
@@ -32,6 +33,17 @@
         
       </agm-map>
     </div>
+    <form class="box" >
+    <h1>test db</h1>
+        <div class="form-group">
+            <label for="LAT">LAT</label>
+            <input type="text" class="form-control" name="LAT" placeholder="enter LAT" [(ngModel)]="markerstest.LAT">
+            <label for="LAT">LONG</label>
+            <input type="text" class="form-control" name="LONG" placeholder="enter LONG" [(ngModel)]="markerstest.LONG">
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
 
     <!-- Modal for Gather -->
     <div class="modal" id="myModal">
@@ -77,3 +89,5 @@
     <h5>Your Current Location: {{address}}</h5>
   </div>
 </div>
+
+</body>

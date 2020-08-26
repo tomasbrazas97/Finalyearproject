@@ -13,4 +13,4 @@ const MarkerSchema = new Schema({
   }
 })
 
-module.exports = Marker = mongoose.model('markers', MarkerSchema)
+module.exports = Marker = mongoose.model('markers', MarkerSchema);

@@ -27,6 +27,11 @@ export class HomeComponent implements OnInit{
     { lat: 53.51413, lng: -8.8550},
     { lat: 53.5148, lng: -8.8519}
   ]
+  
+  markerstest = {
+    LAT: '',
+    LONG: ''
+  };
 
   mapDoubleClick(event) {
     console.log(event);
@@ -205,7 +210,8 @@ export class HomeComponent implements OnInit{
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
+    private ngZone: NgZone,
+    private router: Router
   ) { }
 
   ngOnInit() {

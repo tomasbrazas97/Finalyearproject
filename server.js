@@ -3,13 +3,15 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
 var app = express()
 var mongoose = require('mongoose')
-// const connectDB = require('./config/db');
 const dotenv = require('dotenv');
 const path = require('path');
 
-
 // load env vars
 dotenv.config({ path: './config/config.env' });
+
+// set static folder
+// add /home at end
+app.use(express.static(path.join(__dirname, 'client/app')));
 
 var port = process.env.PORT || 3000
 

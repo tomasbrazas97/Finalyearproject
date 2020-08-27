@@ -22,7 +22,7 @@ const mongoURI = 'mongodb+srv://tom123:tom123@disco.v4x55.mongodb.net/Users?retr
 app.use('/api/v1/locations', require('./routes/locations'));
 
 mongoose
- .connect(mongoURI, {useNewUrlParser: true})
+ .connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true})
  .then(() => console.log("MongoDB connected"))
  .catch(err => console.log(err))
 

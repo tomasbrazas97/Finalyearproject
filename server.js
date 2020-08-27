@@ -3,6 +3,13 @@ var cors = require('cors')
 var bodyParser = require('body-parser')
 var app = express()
 var mongoose = require('mongoose')
+// const connectDB = require('./config/db');
+const dotenv = require('dotenv');
+const path = require('path');
+
+// load env vars
+dotenv.config({ path: './config/config.env' });
+
 var port = process.env.PORT || 3000
 
 app.use(bodyParser.json())
@@ -11,6 +18,10 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.json())
 
 const mongoURI = 'mongodb+srv://tom123:tom123@disco.v4x55.mongodb.net/Users?retryWrites=true&w=majority'
+
+app.get('/api/v1/locations', (req, res) => {
+    res.send('Hello');
+});
 
 mongoose
  .connect(mongoURI, {useNewUrlParser: true})

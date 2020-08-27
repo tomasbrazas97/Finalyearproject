@@ -4,8 +4,7 @@
   "description": "DISCOVERUS - Tomas Brazas - G00349242",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "nodemon mserver.js"
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",

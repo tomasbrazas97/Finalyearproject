@@ -19,9 +19,7 @@ app.use(express.json())
 
 const mongoURI = 'mongodb+srv://tom123:tom123@disco.v4x55.mongodb.net/Users?retryWrites=true&w=majority'
 
-app.get('/api/v1/locations', (req, res) => {
-    res.send('Hello');
-});
+app.use('/api/v1/locations', require('./routes/locations'));
 
 mongoose
  .connect(mongoURI, {useNewUrlParser: true})
@@ -29,10 +27,8 @@ mongoose
  .catch(err => console.log(err))
 
  var Users = require('./routes/Users')
- var Markers = require('./routes/Markers')
 
  app.use('/users', Users)
- app.use('/markers', Markers)
 
  app.listen(port, function () {
      console.log("Server is running on port: " + port)

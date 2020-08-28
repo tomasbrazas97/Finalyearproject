@@ -22,17 +22,14 @@ export class HomeComponent implements OnInit{
   lng1: number = -8.8550;
   lat2: number = 53.5148;
   lng2: number = -8.8519;
+  markers: Array<any>=[];
 
   locations = [
     { lat: 53.51413, lng: -8.8550},
     { lat: 53.5148, lng: -8.8519}
   ]
-  
-  markerstest = {
-    LAT: '',
-    LONG: ''
-  };
 
+  
   mapDoubleClick(event) {
     console.log(event);
     const obj = {

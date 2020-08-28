@@ -54,7 +54,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthenticationService, AuthGuardService],
+  providers: [AuthenticationService, AuthGuardService, AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

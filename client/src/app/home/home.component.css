@@ -3,6 +3,11 @@ agm-map {
     width: 100%;
   }
 
+#map {
+    height: 100%;
+    width: 100%;
+}
+
 /* Remove clutter tos*/
 .gmnoprint a, .gmnoprint span {
     display:none;

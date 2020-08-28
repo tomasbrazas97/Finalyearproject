@@ -1,5 +1,5 @@
 <head>
-  
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
 <div class="heading">
@@ -78,5 +78,15 @@
     <h5>Your Current Location: {{address}}</h5>
   </div>
 </div>
-
+<div class="container my-3">
+    <h1 class="display-4 text-center">
+      <i class="fas fa-map-marked mr-4"></i>Store Locator
+    </h1>
+    <a (click)="toAdd();" class="btn btn-success mb-4">Add Store</a>
+    <div
+      id="map"
+      style="width: 100%; height: 500px;"
+    ></div>
+  </div>
+  <script src="map.js"></script>
 </body>

@@ -47,6 +47,10 @@ export class HomeComponent implements OnInit{
     suppressMarkers: true,
   }
 
+  toAdd() {
+    this.router.navigateByUrl('/add');
+  }
+
   public mapStyles = [
     {
     "featureType": "poi",
@@ -310,29 +314,3 @@ export class HomeComponent implements OnInit{
   }
 }
 
-// Fetch stores from API
-async function getLocations() {
-  const res = await fetch('/api/v1/locations');
-  const data = await res.json();
-
-  const locations = data.data.map(location => {
-    return {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [
-          location.location.coordinates[0],
-          location.location.coordinates[1]
-        ]
-      },
-      properties: {
-        locationName: location.locationName,
-        icon: 'shop'
-      }
-    };
-  });
-
-}
-
-
-getLocations();

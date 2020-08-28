@@ -10,8 +10,7 @@ const path = require('path');
 dotenv.config({ path: './config/config.env' });
 
 // set static folder
-// add /home at end
-app.use(express.static(path.join(__dirname, 'client/app')));
+app.use("/home", express.static(path.join(__dirname, 'client/src/app/home')));
 
 var port = process.env.PORT || 3000
 

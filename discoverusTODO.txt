@@ -1,6 +1,5 @@
 DISCOVERUS
 
-- DB for markers 
 - Let user add his own markers (button with curr location)
 - Add to favourites/ view favourites on profile page
 - Let user upload own images

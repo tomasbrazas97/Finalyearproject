@@ -16,7 +16,8 @@ import { WelcomeComponent } from './welcome/welcome.component'
 import { HomeComponent } from './home/home.component'
 import { AuthenticationService } from './authentication.service'
 import { AuthGuardService } from './auth-guard.service';
-import { AddComponent } from './add/add.component'
+import { AddComponent } from './add/add.component';
+import { ChatComponent } from './chat/chat.component'
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -39,7 +40,8 @@ const routes: Routes = [
     RegisterComponent,
     WelcomeComponent,
     HomeComponent,
-    AddComponent
+    AddComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

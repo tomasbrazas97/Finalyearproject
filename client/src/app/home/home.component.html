@@ -1,91 +1,91 @@
 <html>
 <head>
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
-<div class="heading">
-  <div >
-      <h1 class="text-center">HOME PAGE</h1>
-</div>
-<div class="container">
-    <div>
-      <input type="text" class="input"  (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+  <div class="heading">
+    <div >
+        <h1 class="text-center">HOME PAGE</h1>
+  </div>
+  <div class="container">
+      <div>
+        <input type="text" class="input"  (keydown.enter)="$event.preventDefault()" placeholder="Search Location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" #search>
+    
+        <agm-map [streetViewControl]="false" [styles]="mapStyles" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapDblClick)="mapDoubleClick($event)"
+        [disableDoubleClickZoom]="true">
+          <agm-marker 
+          [animation]="an"
+          [latitude]="latitude" 
+          [longitude]="longitude" 
+          [markerDraggable]="true"
+          [agmFitBounds]="true"
+          (dragEnd)="markerDragEnd($event)">
   
-      <agm-map [streetViewControl]="false" [styles]="mapStyles" [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapDblClick)="mapDoubleClick($event)"
-      [disableDoubleClickZoom]="true">
-        <agm-marker 
-        [animation]="an"
-        [latitude]="latitude" 
-        [longitude]="longitude" 
-        [markerDraggable]="true"
-        [agmFitBounds]="true"
-        (dragEnd)="markerDragEnd($event)">
-
-        <agm-direction 
-        *ngIf="dir" [origin]="dir.origin"
-          [destination]="destination"
-          [renderOptions]="renderOptions" 
-          ></agm-direction>
-        </agm-marker> 
-        <!--<agm-marker *ngFor="let location of locations" [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
-        <agm-marker (markerClick)="markerClick()" [latitude]="lat1" [longitude]="lng1"></agm-marker>
-        <agm-marker (markerClick)="markerClick1()" [latitude]="lat2" [longitude]="lng2"></agm-marker> -->
-        
-      </agm-map>
-    </div>
-
-    <!-- Modal for Gather -->
-    <div class="modal" id="myModal">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Gather Restaurant</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <div class="modal-body">
-            <img src="../assets/gatherTuam.jpg"/>
-            Gather is a casual & contemporary restaurant in Tuam Co. Galway founded by sisters Siobhan & Aoife Flaherty in Nov 2016. We are community focused & guided by the seasons to create menus that place an emphasis on seasonal, organic, wild & foraged produce, supporting local farmers, producers & businesses.
-            <button type="button">Favourite</button>
-          </div>
-          <div class="modal-footer">
-            <button (click)="getDirectionsModal1();" type="button">Get Directions</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-          </div>
-        </div>
+          <agm-direction 
+          *ngIf="dir" [origin]="dir.origin"
+            [destination]="destination"
+            [renderOptions]="renderOptions" 
+            ></agm-direction>
+          </agm-marker> 
+          <!--<agm-marker *ngFor="let location of locations" [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+          <agm-marker (markerClick)="markerClick()" [latitude]="lat1" [longitude]="lng1"></agm-marker>
+          <agm-marker (markerClick)="markerClick1()" [latitude]="lat2" [longitude]="lng2"></agm-marker> -->
+          
+        </agm-map>
       </div>
-    </div>
-
-    <!-- The Modal -->
-    <div class="modal" id="myModal1">
+  
+      <!-- Modal for Gather -->
+      <div class="modal" id="myModal">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Xian Street Food</h4>
+              <h4 class="modal-title">Gather Restaurant</h4>
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-            <img src="../assets/xian.jpg"/>
-            Our primary goal is to remain real and authentic by honouring the thousand year old culture and taste of Xi’An. The city of Xi’An is one of the oldest in China. As the starting of Silk Road, it has years of culture and time to perfect its unique foods and flavours. We here at Xi’An street food in Tuam are recreating these great flavours every day with our authentic Chinese dishes.
+              <img src="../assets/gatherTuam.jpg"/>
+              Gather is a casual & contemporary restaurant in Tuam Co. Galway founded by sisters Siobhan & Aoife Flaherty in Nov 2016. We are community focused & guided by the seasons to create menus that place an emphasis on seasonal, organic, wild & foraged produce, supporting local farmers, producers & businesses.
+              <button type="button">Favourite</button>
             </div>
             <div class="modal-footer">
-              <button (click)="getDirectionsModal2();" type="button">Get Directions</button>
+              <button (click)="getDirectionsModal1();" type="button">Get Directions</button>
               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
       </div>
-
-    <h5>Your Current Location: {{address}}</h5>
+  
+      <!-- The Modal -->
+      <div class="modal" id="myModal1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Xian Street Food</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+              <img src="../assets/xian.jpg"/>
+              Our primary goal is to remain real and authentic by honouring the thousand year old culture and taste of Xi’An. The city of Xi’An is one of the oldest in China. As the starting of Silk Road, it has years of culture and time to perfect its unique foods and flavours. We here at Xi’An street food in Tuam are recreating these great flavours every day with our authentic Chinese dishes.
+              </div>
+              <div class="modal-footer">
+                <button (click)="getDirectionsModal2();" type="button">Get Directions</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      <h5>Your Current Location: {{address}}</h5>
+    </div>
   </div>
-</div>
 <div class="container my-3">
     <h1 class="display-4 text-center">
       <i class="fas fa-map-marked mr-4"></i>Store Locator
     </h1>
     <a (click)="toAdd();" class="btn btn-success mb-4">Add Store</a>
-    <div id="map" style="width: 500px; height: 500px; border-radius: 5px;"></div>
+    <div id="map" class="mapBox" style="width: 100%; height: 500px; border-radius: 5px;"></div>
   </div>
-  <script src="js/map.js"></script>
+  <script src="map.js"></script>
 </body>
 </html>

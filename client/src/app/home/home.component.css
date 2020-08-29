@@ -3,9 +3,10 @@ agm-map {
     width: 100%;
   }
 
-#map {
-    height: 100%;
+  .mapBox {
+    height: 600px;
     width: 100%;
+    border-radius: 5px;
 }
 
 /* Remove clutter tos*/

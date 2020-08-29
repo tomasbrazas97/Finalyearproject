@@ -1,12 +1,18 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { MapsAPILoader, MouseEvent } from '@agm/core';
 import { Router } from '@angular/router';
+import * as mapboxgl from 'mapbox-gl';
+import { environment } from '../../environments/environment';
 declare var $: any;
 
 @Component({
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit{
+  map: mapboxgl.Map;
+  style = 'mapbox://styles/mapbox/streets-v11';
+  lat = 37.75;
+  lng = -122.41;
 
   title: string = 'AGM';
   latitude: number;
@@ -23,6 +29,7 @@ export class HomeComponent implements OnInit{
   lat2: number = 53.5148;
   lng2: number = -8.8519;
   markers: Array<any>=[];
+  
 
   locations = [
     { lat: 53.51413, lng: -8.8550},
@@ -240,6 +247,15 @@ export class HomeComponent implements OnInit{
       });
     });
 
+    Object.getOwnPropertyDescriptor(mapboxgl, 'accessToken').set(environment.mapbox.accessToken);
+    this.map = new mapboxgl.Map({
+      container: 'map',
+      style: this.style,
+      zoom: 13,
+      center: [this.lng, this.lat]
+  });
+  // Add map controls
+  this.map.addControl(new mapboxgl.NavigationControl());
   }
 
   markerClick() {

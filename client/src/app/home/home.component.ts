@@ -5,14 +5,11 @@ import * as mapboxgl from 'mapbox-gl';
 import { environment } from '../../environments/environment';
 declare var $: any;
 
+
 @Component({
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit{
-  map: mapboxgl.Map;
-  style = 'mapbox://styles/mapbox/streets-v11';
-  lat = 37.75;
-  lng = -122.41;
 
   title: string = 'AGM';
   latitude: number;
@@ -28,9 +25,8 @@ export class HomeComponent implements OnInit{
   lng1: number = -8.8550;
   lat2: number = 53.5148;
   lng2: number = -8.8519;
-  markers: Array<any>=[];
+  mapa: mapboxgl.Map;
   
-
   locations = [
     { lat: 53.51413, lng: -8.8550},
     { lat: 53.5148, lng: -8.8519}
@@ -248,16 +244,17 @@ export class HomeComponent implements OnInit{
     });
 
     Object.getOwnPropertyDescriptor(mapboxgl, 'accessToken').set(environment.mapbox.accessToken);
-    this.map = new mapboxgl.Map({
+    this.mapa = new mapboxgl.Map({
       container: 'map',
-      style: this.style,
+      style: 'mapbox://styles/mapbox/streets-v11',
       zoom: 13,
-      center: [this.lng, this.lat]
+      center: [-122.41, 37.75]
   });
   // Add map controls
-  this.map.addControl(new mapboxgl.NavigationControl());
+  this.mapa.addControl(new mapboxgl.NavigationControl());
   }
-
+  
+  
   markerClick() {
     $("#myModal").modal('show');
   }
@@ -296,6 +293,7 @@ export class HomeComponent implements OnInit{
       });
     }
   }
+  
  
   markerDragEnd($event: MouseEvent) {
     console.log($event);
@@ -324,6 +322,21 @@ export class HomeComponent implements OnInit{
       }
  
     });
+
+    this.createMarker(-122.41, 37.75);
+  } //end of ONIT
+
+  createMarker(lng: number, lat: number){
+    const marker = new mapboxgl.Marker({
+      draggable: true
+    })
+    .setLngLat([lng, lat])
+    .addTo(this.mapa);
+
+    marker.on('drag', ()=>{
+      console.log( marker.getLngLat );
+    })
   }
 }
 
+ 

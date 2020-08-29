@@ -228,15 +228,6 @@ export class HomeComponent implements OnInit{
   ) { }
 
   ngOnInit() {
-
-    this._locationApiService.getLocations()
-    .subscribe
-    (
-      data => {
-        this.locations = data;
-        console.log(data);
-        })
-
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
@@ -269,7 +260,13 @@ export class HomeComponent implements OnInit{
   });
   // Add map controls
   this.map.addControl(new mapboxgl.NavigationControl());*/
-   
+  this._locationApiService.getLocations()
+  .subscribe
+  (
+    data => {
+      this.locations = data;
+      console.log(data);
+      })
   }
   
   

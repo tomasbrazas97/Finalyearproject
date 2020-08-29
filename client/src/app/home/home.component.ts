@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core'
 import { MapsAPILoader, MouseEvent } from '@agm/core';
 import { Router } from '@angular/router';
 import * as mapboxgl from 'mapbox-gl';
+import { AgmCoreModule, AgmDataLayer } from '@agm/core';
 import { environment } from '../../environments/environment';
+import { LocationApiService } from '../home/locationApiService.service';
 declare var $: any;
 
 
@@ -30,10 +32,11 @@ export class HomeComponent implements OnInit{
   lat2: number = 53.5148;
   lng2: number = -8.8519;
   //mapa: mapboxgl.Map;
+  markers: any = [];
   
   locations = [
-    { lat: 53.51413, lng: -8.8550},
-    { lat: 53.5148, lng: -8.8519}
+    { lat: 53.61413, lng: -8.8550},
+    { lat: 53.7148, lng: -8.8519}
   ]
   
   
@@ -45,14 +48,11 @@ export class HomeComponent implements OnInit{
 
     };
     this.locations.push(obj);
+    console.log(this.locations);
   }
   
   public renderOptions = {
     suppressMarkers: true,
-  }
-
-  toAdd() {
-    this.router.navigateByUrl('/add');
   }
 
   toRefresh(): void{
@@ -223,10 +223,20 @@ export class HomeComponent implements OnInit{
   constructor(
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
-    private router: Router
+    private router: Router,
+    private _locationApiService: LocationApiService
   ) { }
 
   ngOnInit() {
+
+    this._locationApiService.getLocations()
+    .subscribe
+    (
+      data => {
+        this.locations = data;
+        console.log(data);
+        })
+
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
       this.setCurrentLocation();
@@ -250,8 +260,7 @@ export class HomeComponent implements OnInit{
         });
       });
     });
-
-    Object.getOwnPropertyDescriptor(mapboxgl, 'accessToken').set(environment.mapbox.accessToken);
+   /* Object.getOwnPropertyDescriptor(mapboxgl, 'accessToken').set(environment.mapbox.accessToken);
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
@@ -259,7 +268,8 @@ export class HomeComponent implements OnInit{
       center: [this.lng, this.lat]
   });
   // Add map controls
-  this.map.addControl(new mapboxgl.NavigationControl());
+  this.map.addControl(new mapboxgl.NavigationControl());*/
+   
   }
   
   
@@ -329,11 +339,7 @@ export class HomeComponent implements OnInit{
         window.alert('Geocoder failed due to: ' + status);
       }
  
-    });
-
-   // this.createMarker(-122.41, 37.75);
-
-    
+    });    
   } //end of ONIT
 
 

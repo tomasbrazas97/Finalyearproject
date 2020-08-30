@@ -11,8 +11,8 @@ Video | [Demonstration](https://www.youtube.com/watch?v=dZjFuAWhAw4&feature=yout
 Documentation | Can be found above in pdf format (DiscoverusDoc)
 
 ## About
-Discoverus is a navigation web application that integrates google maps for main features such as location tracking, venues and 
-directions. The application is supposed to aid tourists coming to local area of Galway and viewing local spots of interest.
+Discoverus is a navigation web application that integrates google maps for main features such as location tracking, custom marker locations and 
+directions. The users can also chat between each other in a realtime chat. The application is supposed to aid the user in saving their favourite locations across the globe. The application uses mongoDB atlas to host the database. A cluster with two collections, for the user and markers. Angular google maps is integrated to support navigational and marker features. The application showcases a MEAN stack developed application with multiple REST APIs that have been made to succesfully run the application.
 
 ## How To Run Locally
 1. Open command terminal and type: `git clone https://github.com/tomasbrazas97/Finalyearproject`.

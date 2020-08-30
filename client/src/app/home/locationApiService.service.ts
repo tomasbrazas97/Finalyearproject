@@ -2,23 +2,24 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Point } from 'mapbox-gl';
 
-export interface Feature {
+export interface LocationsCord {
 
-  geometry: Geometry;
+  coordinates: Geometry;
 
 }
 
 export interface Geometry {
 
-  type: String;
+  type: Point;
   coordinates: number;
 
 }
 
 export class Location {
 
-  features: Feature;
+  coordinates: LocationsCord;
   locationName: string;
   formattedAddress: string;
  

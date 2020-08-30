@@ -1,6 +1,6 @@
 const Location = require('../models/Location');
 
-// get all stores
+// get all locations
 exports.getLocations = async (req, res, next) => {
    try {
     const locations = await Location.find();
@@ -16,7 +16,7 @@ exports.getLocations = async (req, res, next) => {
    }
 } 
 
-// create a store 
+// create a location
 exports.addLocation = async (req, res, next) => {
     try {
       const location = await Location.create(req.body);

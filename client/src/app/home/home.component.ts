@@ -7,15 +7,22 @@ import { environment } from '../../environments/environment';
 import { LocationApiService } from '../home/locationApiService.service';
 declare var $: any;
 
+// Marker Type
+interface marker{
+  name?: string;
+  lat: number;
+  lng: number;
+  draggable: boolean;
+}
 
 @Component({
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit{
-  map: mapboxgl.Map;
-  style = 'mapbox://styles/mapbox/streets-v11';
-  lat = 37.75;
-  lng = -122.41;
+ // map: mapboxgl.Map;
+  //style = 'mapbox://styles/mapbox/streets-v11';
+  //lat = 37.75;
+  //lng = -122.41;
 
   title: string = 'AGM';
   latitude: number;
@@ -27,17 +34,41 @@ export class HomeComponent implements OnInit{
   origin: any;
   destination: any;
   dir = undefined;
+
+
   lat1: number = 53.51413;
   lng1: number = -8.8550;
   lat2: number = 53.5148;
   lng2: number = -8.8519;
   //mapa: mapboxgl.Map;
-  markers: any = [];
+  positions: any = [];
   
-  locations = [
+  markers: marker[] = [
+    {
+      name: 'Test1',
+      lat: 53.5204,
+      lng: -8.8557,
+      draggable: true
+    },
+    {
+      name: 'Test2',
+      lat: 54.5204,
+      lng: -8.8557,
+      draggable: true
+    },
+    {
+      name: 'Test3',
+      lat: 55.5204,
+      lng: -8.8557,
+      draggable: true
+    }     
+  ];
+
+
+  /*locations = [
     { lat: 53.61413, lng: -8.8550},
     { lat: 53.7148, lng: -8.8519}
-  ]
+  ]*/
   
   
   mapDoubleClick(event) {
@@ -47,8 +78,8 @@ export class HomeComponent implements OnInit{
       lng: event.coords.lng,
 
     };
-    this.locations.push(obj);
-    console.log(this.locations);
+    //this.locations.push(obj);
+    //console.log(this.locations);
   }
   
   public renderOptions = {
@@ -227,6 +258,33 @@ export class HomeComponent implements OnInit{
     private _locationApiService: LocationApiService
   ) { }
 
+  clickedMarker(marker: marker, index:number){
+    console.log('clicked marker:' +marker.name+'at index ' +index)
+  }
+
+  mapClicked($event:any){
+    var newMarker = {
+      name: 'Untitled',
+      lat: $event.coords.lat,
+      lng: $event.coords.lng,
+      draggable: false
+    }
+    this.markers.push(newMarker);
+  }
+
+  markerDragEnd1(marker:any, $event:any){
+    console.log('dragEnd', marker, $event);
+
+    var updMarker = {
+      name: marker.name,
+      lat: parseFloat(marker.lat),
+      lng: parseFloat(marker.lng),
+      dragagble: false
+    }
+
+    var newLat = $event.coords.lat;
+    var newLng = $event.coords.lng;
+  }
   ngOnInit() {
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
@@ -264,7 +322,7 @@ export class HomeComponent implements OnInit{
   .subscribe
   (
     data => {
-      this.locations = data;
+      this.positions = data.coordinates;
       console.log(data);
       })
   }

@@ -33,6 +33,8 @@
           <agm-info-window [disableAutoPan]="true">
              <strong>{{marker.name}}</strong>
              <br>
+             <strong>{{marker.desc}}</strong>
+             <br>
              <a class="delete" (click)="removeMarker(marker)">Remove</a>
           </agm-info-window>
         </agm-marker>
@@ -55,6 +57,9 @@
                   <form>
                     <label>Location Name</label>
                     <input type="text" [(ngModel)]="markerName" name="markerName">
+
+                    <label>Description</label>
+                    <input type="text" [(ngModel)]="markerDesc" name="markerDesc">
 
                     <label>Latittude</label>
                     <input type="text" [(ngModel)]="markerLat" name="markerLat">

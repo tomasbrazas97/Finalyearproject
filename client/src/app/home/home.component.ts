@@ -11,6 +11,7 @@ declare var $: any;
 // Marker Type
 interface marker{
   name?: string;
+  desc: string;
   lat: number;
   lng: number;
   draggable: boolean;
@@ -46,6 +47,7 @@ export class HomeComponent implements OnInit{
   positions: any = [];
   //values
   markerName: string;
+  markerDesc: string;
   markerLat: string;
   markerLng: string;
   markerDraggable: string;
@@ -255,6 +257,7 @@ export class HomeComponent implements OnInit{
   mapClicked($event:any){
     var newMarker = {
       name: 'Untitled',
+      desc: 'no info',
       lat: $event.coords.lat,
       lng: $event.coords.lng,
       draggable: false
@@ -268,6 +271,7 @@ export class HomeComponent implements OnInit{
 
     var updMarker = {
       name: marker.name,
+      desc: marker.desc,
       lat: parseFloat(marker.lat),
       lng: parseFloat(marker.lng),
       dragagble: false
@@ -291,6 +295,7 @@ export class HomeComponent implements OnInit{
 
     var newMarker = {
       name: this.markerName,
+      desc: this.markerDesc,
       lat: parseFloat(this.markerLat),
       lng: parseFloat(this.markerLng),
       draggable: isDraggable

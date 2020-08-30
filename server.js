@@ -8,7 +8,7 @@ var mongoose = require('mongoose')
 const dotenv = require('dotenv');
 const path = require('path');
 
-const io = require('socket.io').listen(server);
+var io = require('socket.io').listen(server);
 
 
 // load env vars
@@ -19,14 +19,21 @@ app.use("/home", express.static(path.join(__dirname, 'client/src/app/home')));
 app.use("/app", express.static(path.join(__dirname, 'client/src/app')));
 
 // Run when client connects
-io.on('connection', socket => {
+io.on('connection', (socket) => {
     console.log('New WS connection...');
 
-    socket.emit('message', 'Welcome to the Discoverus Chat!');
+    //joining
+    socket.on('join', function(data){
+
+        socket.join(data.room);
+
+        console.log(data.user + 'joined the room: ' + data.room);
+        socket.broadcast.to(data.room).emit('new user joined', {user: data.user, message: 'has joined the room.'});
+    });
 });
 
 var port = process.env.PORT || 3000
-server.listen(8000);
+
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -45,6 +52,6 @@ mongoose
  var Users = require('./routes/Users')
 
  app.use('/users', Users)
- app.listen(port, function () {
+ server.listen(port, function () {
      console.log("Server is running on port: " + port)
  })

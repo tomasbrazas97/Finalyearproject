@@ -32,6 +32,8 @@
           [latitude]="marker.lat" [longitude]="marker.lng" [markerDraggable]="marker.draggable" (dragEnd)="markerDragEnd1(marker, $event)">
           <agm-info-window [disableAutoPan]="true">
              <strong>{{marker.name}}</strong>
+             <br>
+             <a class="delete" (click)="removeMarker(marker)">Remove</a>
           </agm-info-window>
         </agm-marker>
 

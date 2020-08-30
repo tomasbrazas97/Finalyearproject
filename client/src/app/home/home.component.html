@@ -4,6 +4,7 @@
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
+  <div class="wrapper">
   <div class="heading">
     <div >
         <h1 class="text-center">HOME PAGE</h1>
@@ -35,8 +36,8 @@
              <br>
              <strong>{{marker.desc}}</strong>
              <br>
-             <button (click)="getDirections(marker);" type="button">Get Directions</button>
-             <button class="delete" (click)="removeMarker(marker)">Remove</button>
+             <button class="btn1" (click)="getDirections(marker);" type="button">Get Directions</button>
+             <button class="btn1" (click)="removeMarker(marker)">Remove</button>
           </agm-info-window>
         </agm-marker>
 
@@ -53,7 +54,7 @@
           <div class="col-md-12">
             <div class="panel panel-default">
               <div class="panel-heading">
-                <h3 class="panel-title">Add New Marker</h3>
+                <h3 class="heading1">Add Your New Spot!</h3>
                 <div class="panel-body">
                   <form>
                     <label>Location Name</label>
@@ -61,19 +62,18 @@
 
                     <label>Description</label>
                     <input type="text" [(ngModel)]="markerDesc" name="markerDesc">
-
                     <label>Latittude</label>
                     <input type="text" [(ngModel)]="markerLat" name="markerLat">
 
                     <label>Longitude</label>
                     <input type="text" [(ngModel)]="markerLng" name="markerLng">
-
+                    <br>
                     <label>Draggable</label>
                     <select type="text" [(ngModel)]="markerDraggable" name="markerDraggable">
                       <option value="no">No</option>
                       <option value="yes">Yes</option>
                     </select>
-                    <input type="submit" (click)="addMarker()" value="send">
+                    <input class="btn1" type="submit" (click)="addMarker()" value="Submit">
                   </form>
                 </div>
               </div>
@@ -122,13 +122,17 @@
             </div>
           </div>
         </div>
-  
-      <h5>Your Current Location: {{address}}</h5>
-      <div>Latitude: {{latitude}}</div>
-      <div>Longitude: {{longitude}}</div>
-      <button (click)="toRefresh();">Refresh My Location</button>
+        
+      <div class="wrapper">
+        <h5>Your Current Location: {{address}}</h5>
+        <div>Latitude: {{latitude}}</div>
+        <div>Longitude: {{longitude}}</div>
+      </div>
+      <button class="btn1" (click)="toRefresh();">Refresh My Location</button>
     </div>
   </div>
+
+</div>
 <!--<div class="container my-3">
     <h1 class="display-4 text-center">
       <i class="fas fa-map-marked mr-4"></i>Store Locator

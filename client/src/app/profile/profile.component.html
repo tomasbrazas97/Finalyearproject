@@ -74,10 +74,10 @@
 						</div>
 						<div class="row">
 							<div class="col-sm-10">
-								<input type="text" class="form-control" >            
+								<input type="text" class="form-control" [(ngModel)]="messageText" >            
 							</div>
 							<div class="col-sm-2">
-									<button type="button" class="btn btn-success pull-right" >Send</button>
+									<button type="button" class="btn btn-success pull-right" (click)="sendMessage()">Send</button>
 							</div>
 						</div>
 					</div>

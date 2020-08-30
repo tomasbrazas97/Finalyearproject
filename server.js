@@ -38,6 +38,11 @@ io.on('connection', (socket) => {
         socket.broadcast.to(data.room).emit('left room', {user: data.user, message: 'has left this room.'});
         socket.leave(data.room);
     });
+
+    //send msg
+    socket.on('message', function(data){
+        io.in(data.room).emit('new message', {user:data.user, message:data.message});
+    });
 });
 
 var port = process.env.PORT || 3000

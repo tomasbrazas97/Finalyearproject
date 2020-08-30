@@ -13,6 +13,7 @@ export class ProfileComponent {
   
   user: String;
   room: String;
+  messageText: String;
   messageArray: Array<{user:String, message:String}> = [];
 
   constructor(private auth: AuthenticationService, private router: Router, private _chatService: ChatService ) {
@@ -20,6 +21,9 @@ export class ProfileComponent {
     .subscribe(data=>this.messageArray.push(data));
 
     this._chatService.userLeftRoom()
+    .subscribe(data=>this.messageArray.push(data));
+
+    this._chatService.newMessageReceived()
     .subscribe(data=>this.messageArray.push(data));
   }
 
@@ -44,5 +48,9 @@ export class ProfileComponent {
 
   leave(){
     this._chatService.leaveRoom({user:this.user, room:this.room});
+  }
+
+  sendMessage(){
+    this._chatService.sendMessage({user:this.user, room:this.room, message:this.messageText});
   }
 }

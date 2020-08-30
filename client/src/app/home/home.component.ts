@@ -5,6 +5,7 @@ import * as mapboxgl from 'mapbox-gl';
 import { AgmCoreModule, AgmDataLayer } from '@agm/core';
 import { environment } from '../../environments/environment';
 import { LocationApiService } from '../home/locationApiService.service';
+import { MarkerService } from '../home/marker.service';
 declare var $: any;
 
 // Marker Type
@@ -16,7 +17,8 @@ interface marker{
 }
 
 @Component({
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
+  providers: [MarkerService]
 })
 export class HomeComponent implements OnInit{
  // map: mapboxgl.Map;
@@ -48,27 +50,7 @@ export class HomeComponent implements OnInit{
   markerLng: string;
   markerDraggable: string;
   
-  markers: marker[] = [
-    {
-      name: 'Test1',
-      lat: 53.5204,
-      lng: -8.8557,
-      draggable: true
-    },
-    {
-      name: 'Test2',
-      lat: 54.5204,
-      lng: -8.8557,
-      draggable: true
-    },
-    {
-      name: 'Test3',
-      lat: 55.5204,
-      lng: -8.8557,
-      draggable: true
-    }     
-  ];
-
+  markers: marker[];
 
   /*locations = [
     { lat: 53.61413, lng: -8.8550},
@@ -260,8 +242,11 @@ export class HomeComponent implements OnInit{
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     private router: Router,
-    private _locationApiService: LocationApiService
-  ) { }
+    private _locationApiService: LocationApiService,
+    private _markerService: MarkerService
+  ) { 
+    this.markers = this._markerService.getMarkers();
+  }
 
   clickedMarker(marker: marker, index:number){
     console.log('clicked marker:' +marker.name+'at index ' +index)
@@ -293,7 +278,7 @@ export class HomeComponent implements OnInit{
 
   addMarker(){
     console.log('adding marker');
-    
+
     if(this.markerDraggable == 'yes'){
       var isDraggable = true;
 
@@ -309,6 +294,7 @@ export class HomeComponent implements OnInit{
     }
 
     this.markers.push(newMarker);
+    this._markerService.addMarker(newMarker)
   }
   ngOnInit() {
     //load Places Autocomplete

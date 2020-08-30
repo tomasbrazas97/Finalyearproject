@@ -35,6 +35,7 @@
              <br>
              <strong>{{marker.desc}}</strong>
              <br>
+             <button (click)="getDirections(marker);" type="button">Get Directions</button>
              <a class="delete" (click)="removeMarker(marker)">Remove</a>
           </agm-info-window>
         </agm-marker>

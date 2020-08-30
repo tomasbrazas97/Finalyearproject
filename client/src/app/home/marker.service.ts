@@ -40,4 +40,13 @@ export class MarkerService extends Init {
         }
         localStorage.setItem('markers', JSON.stringify(markers));
     }
+
+    getDirections(marker){
+        var markers= JSON.parse(localStorage.getItem('markers'));
+        for(var i = 0; i < markers.length; i++){
+            if(marker.lat == markers[i].lat && marker.lng == markers[i].lng){
+                return markers;
+            }
+        }  
+      }
 }

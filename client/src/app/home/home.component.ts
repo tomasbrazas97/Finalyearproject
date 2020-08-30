@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit{
   }
   
   public renderOptions = {
-    suppressMarkers: true,
+    suppressMarkers: true
   }
 
   toRefresh(): void{
@@ -313,6 +313,19 @@ export class HomeComponent implements OnInit{
     }
 
     this._markerService.removeMarker(marker);
+  }
+
+  getDirections(marker){
+    for(var i = 0; i < this.markers.length; i++){
+      if(marker.lat == this.markers[i].lat && marker.lng == this.markers[i].lng){
+        this.destination = { 
+          lat: marker.lat,
+          lng: marker.lng
+        };
+      }
+    }
+
+    
   }
 
   ngOnInit() {

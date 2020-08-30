@@ -306,6 +306,8 @@ export class HomeComponent implements OnInit{
         this.markers.splice(i, 1);
       }
     }
+
+    this._markerService.removeMarker(marker);
   }
 
   ngOnInit() {

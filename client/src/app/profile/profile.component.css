@@ -2,3 +2,40 @@ h1 {
     text-align: center;
     letter-spacing: 1rem;
 }
+
+.container{
+    width: 70%;
+    height: 430px;
+}
+
+label{ 
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    letter-spacing: 1rem;
+}
+
+.btn1{
+    background: none;
+    text-align: center;
+    position: relative;
+    border: 0;
+    display: block;
+    border: 2px solid;
+    padding: 5px 20px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    border-color: white;
+    margin-top: 3px;
+}
+
+.btn1:hover{
+    background: #9D5C63;
+    color: white;
+
+}

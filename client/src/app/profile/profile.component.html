@@ -37,30 +37,28 @@
                     </div>
                 </div>
 				<div class="container-fluid">
-						<div class="row">
-							<h2>Realtime Chat Application</h2>
+							<h2>Discoverus Chat</h2>
 							<hr>
-						</div>
+						
 						<div class="row">
 							<div class="col-sm-5">
 								<div class="form-group">
 									<label for="username">Username</label>
 									<input type="text" [(ngModel)]="user" class="form-control" id="username" placeholder="Enter username">
-									<!-- <small id="userHelp" class="form-text text-muted">Type your username.</small> -->
 								</div>
 							</div>
 							<div class="col-sm-5">
-								<label for="roomInput">Choose room</label>
+								<label for="roomInput">Choose a room</label>
 								<select name="roomInput" id="roomInput" class="form-control" [(ngModel)]="room">
-									<option value="Lobby">Lobby</option>
-									<option value="Hall">Hall</option>
-									<option value="Deluxe">Deluxe</option>
+									<option >Views</option>
+									<option >Explore</option>
+									<option >Lobby</option>
 								</select>
 							</div>
 							<div class="col sm-2">
 								<div style="margin-top:19px;" class="pull-right"> 
-									<button type="button" class="btn btn-primary" (click)="join()">Join</button>
-									<button type="button" class="btn btn-default" (click)="leave()" >Leave</button>
+									<button type="button" class="btn1" (click)="join()">Join</button>
+									<button type="button" class="btn1" (click)="leave()" >Leave</button>
 								</div>
 							</div>
 						</div>

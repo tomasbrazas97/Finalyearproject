@@ -323,9 +323,7 @@ export class HomeComponent implements OnInit{
           lng: marker.lng
         };
       }
-    }
-
-    
+    }   
   }
 
   ngOnInit() {

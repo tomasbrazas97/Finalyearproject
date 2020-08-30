@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'add', component: AddComponent },
-  { path: 'chat', component: ChatComponent },
+  { path: 'chat/:id', component: ChatComponent, pathMatch: 'full' },
   { path: '', component: WelcomeComponent },
   {
     path: 'profile',

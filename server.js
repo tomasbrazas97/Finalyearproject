@@ -1,14 +1,14 @@
 var express = require('express')
 var cors = require('cors')
 var bodyParser = require('body-parser')
-var app = express()
 const http = require('http');
+var app = express()
 const server = http.createServer(app);
 var mongoose = require('mongoose')
 const dotenv = require('dotenv');
 const path = require('path');
-const socketio = require('socket.io')
-const io = socketio(server);
+
+const io = require('socket.io').listen(server);
 
 
 // load env vars
@@ -21,9 +21,12 @@ app.use("/app", express.static(path.join(__dirname, 'client/src/app')));
 // Run when client connects
 io.on('connection', socket => {
     console.log('New WS connection...');
+
+    socket.emit('message', 'Welcome to the Discoverus Chat!');
 });
 
 var port = process.env.PORT || 3000
+server.listen(8000);
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -42,7 +45,6 @@ mongoose
  var Users = require('./routes/Users')
 
  app.use('/users', Users)
-
  app.listen(port, function () {
      console.log("Server is running on port: " + port)
  })

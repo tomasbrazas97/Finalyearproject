@@ -42,6 +42,11 @@ export class HomeComponent implements OnInit{
   lng2: number = -8.8519;
   //mapa: mapboxgl.Map;
   positions: any = [];
+  //values
+  markerName: string;
+  markerLat: string;
+  markerLng: string;
+  markerDraggable: string;
   
   markers: marker[] = [
     {
@@ -284,6 +289,26 @@ export class HomeComponent implements OnInit{
 
     var newLat = $event.coords.lat;
     var newLng = $event.coords.lng;
+  }
+
+  addMarker(){
+    console.log('adding marker');
+    
+    if(this.markerDraggable == 'yes'){
+      var isDraggable = true;
+
+    } else {
+      var isDraggable = false;
+    }
+
+    var newMarker = {
+      name: this.markerName,
+      lat: parseFloat(this.markerLat),
+      lng: parseFloat(this.markerLng),
+      draggable: isDraggable
+    }
+
+    this.markers.push(newMarker);
   }
   ngOnInit() {
     //load Places Autocomplete

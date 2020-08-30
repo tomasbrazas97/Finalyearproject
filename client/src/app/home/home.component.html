@@ -43,6 +43,35 @@
           </agm-data-layer>
         </agm-map>
       </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Add New Marker</h3>
+                <div class="panel-body">
+                  <form>
+                    <label>Location Name</label>
+                    <input type="text" [(ngModel)]="markerName" name="markerName">
+
+                    <label>Latittude</label>
+                    <input type="text" [(ngModel)]="markerLat" name="markerLat">
+
+                    <label>Longitude</label>
+                    <input type="text" [(ngModel)]="markerLng" name="markerLng">
+
+                    <label>Draggable</label>
+                    <select type="text" [(ngModel)]="markerDraggable" name="markerDraggable">
+                      <option value="no">No</option>
+                      <option value="yes">Yes</option>
+                    </select>
+                    <input type="submit" (click)="addMarker()" value="send">
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
   
       <!-- Modal for Gather -->

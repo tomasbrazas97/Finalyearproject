@@ -260,6 +260,7 @@ export class HomeComponent implements OnInit{
       draggable: false
     }
     this.markers.push(newMarker);
+    this._markerService.addMarker(newMarker);
   }
 
   markerDragEnd1(marker:any, $event:any){
@@ -274,6 +275,8 @@ export class HomeComponent implements OnInit{
 
     var newLat = $event.coords.lat;
     var newLng = $event.coords.lng;
+
+    this._markerService.updateMarker(updMarker, newLat, newLng);
   }
 
   addMarker(){
@@ -294,7 +297,7 @@ export class HomeComponent implements OnInit{
     }
 
     this.markers.push(newMarker);
-    this._markerService.addMarker(newMarker)
+    this._markerService.addMarker(newMarker);
   }
   ngOnInit() {
     //load Places Autocomplete

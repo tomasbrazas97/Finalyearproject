@@ -13,8 +13,15 @@ export class ProfileComponent {
   
   user: String;
   room: String;
+  messageArray: Array<{user:String, message:String}> = [];
 
-  constructor(private auth: AuthenticationService, private router: Router, private _chatService: ChatService ) {}
+  constructor(private auth: AuthenticationService, private router: Router, private _chatService: ChatService ) {
+    this._chatService.newUserJoined()
+    .subscribe(data=>this.messageArray.push(data));
+
+    this._chatService.userLeftRoom()
+    .subscribe(data=>this.messageArray.push(data));
+  }
 
   ngOnInit() {
     this.auth.profile().subscribe(
@@ -33,5 +40,9 @@ export class ProfileComponent {
 
   join(){
     this._chatService.joinRoom({user:this.user, room:this.room});
+  }
+
+  leave(){
+    this._chatService.leaveRoom({user:this.user, room:this.room});
   }
 }

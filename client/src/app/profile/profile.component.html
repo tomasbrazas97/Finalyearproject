@@ -60,15 +60,15 @@
 							<div class="col sm-2">
 								<div style="margin-top:19px;" class="pull-right"> 
 									<button type="button" class="btn btn-primary" (click)="join()">Join</button>
-									<button type="button" class="btn btn-default" >Leave</button>
+									<button type="button" class="btn btn-default" (click)="leave()" >Leave</button>
 								</div>
 							</div>
 						</div>
 					
 						<div class="row">
 							<div class="well" style="height:200px; padding:15px;">
-								<div >
-								<span><strong>: </strong></span>
+								<div *ngFor="let item of messageArray">
+								<span><strong>{{item.user}}: </strong>{{item.message}}</span>
 								</div>
 							</div>
 						</div>

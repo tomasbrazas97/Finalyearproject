@@ -7,7 +7,7 @@
 |Title | Discoverus|
 Author | Tomas Brazas
 Supervisor | Kevin OBrien
-Video | [Demonstration](https://www.youtube.com/watch?v=dZjFuAWhAw4&feature=youtu.be)
+Video | [Demonstration](https://www.youtube.com/watch?v=fZG6A0KM2wg&feature=youtu.be)
 Documentation | Can be found above in pdf format (DiscoverusDoc)
 
 ## About
